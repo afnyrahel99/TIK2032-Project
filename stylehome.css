@@ -1,0 +1,48 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #fff9e6;
+    color: #4e3600;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #a67c00;
+    font-size: 2.5rem;
+}
+
+nav {
+    text-align: center;
+    background-color: #fff3c4;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #a67c00;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffb300;
+}
+
+section#about-toby {
+    background-color: #fffde7;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    max-width: 700px;
+    box-shadow: 0 4px 6px rgba(255, 204, 0, 0.3);
+}
+
+section#about-toby h2 {
+    color: #a67c00;
+}
+
+footer {
+    margin-top: 30px;
+    color: #a67c00;
+    font-size: 0.9rem;
+}

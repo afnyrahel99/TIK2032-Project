@@ -1,0 +1,43 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #fff9e6;
+    color: #4e3600;
+    padding: 20px;
+    text-align: center; /* Menyusun elemen di tengah secara horizontal */
+}
+
+h1 {
+    color: #a67c00;
+}
+
+nav {
+    text-align: center;
+    background-color: #fff3c4;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #a67c00;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffb300;
+}
+
+h2 {
+    color: #a67c00;
+}
+
+img {
+    margin: 10px; /* Memberikan jarak antar gambar */
+    border-radius: 8px; /* Memberikan sudut melengkung pada gambar */
+}
+
+.gallery-container {
+    display: flex; /* Menggunakan flexbox untuk mengatur posisi gambar */
+    justify-content: center; /* Menempatkan gambar di tengah */
+    gap: 20px; /* Memberikan jarak antar gambar */
+}

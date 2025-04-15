@@ -1,0 +1,43 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #fffcea;
+    color: #5c3d00;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #a67c00;
+}
+
+nav {
+    text-align: center;
+    background-color: #fff3c4;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #a67c00;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffb300;
+}
+
+#contact {
+    background-color: #fff9c4;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(255, 204, 0, 0.3);
+    text-align: center;
+}
+
+#contact p {
+    font-size: 18px;
+    margin: 10px 0;
+}

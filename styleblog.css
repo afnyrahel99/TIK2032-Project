@@ -1,0 +1,45 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #fff9e6;
+    color: #4e3600;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #a67c00;
+}
+
+nav {
+    text-align: center;
+    background-color: #fff3c4;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #a67c00;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffb300;
+}
+
+article {
+    background-color: #fffde7;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    max-width: 700px;
+    box-shadow: 0 4px 6px rgba(255, 204, 0, 0.3);
+}
+
+article h3 {
+    color: #b8860b;
+}
+
+article p {
+    line-height: 1.6;
+}
