@@ -2,7 +2,6 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - TIK2032 Project</title>
     <link rel="stylesheet" href="styleblog.css">
 </head>
@@ -11,22 +10,26 @@
     <nav>
         <a href="index.html">Home</a> | 
         <a href="gallery.html">Gallery</a> | 
-        <a href="blog.html">Blog</a> | 
-        <a href="contact.html">Contact</a>
+        <a href="blog.php">Blog</a> | 
+        <a href="contact.php">Contact</a>
     </nav>
-    
-    <article>
-       <h3>Artikel 1: Toby, Anjing Tanpa Ekor yang Menggemaskan</h3>
-            <p>Toby adalah anjing yang unik dan menggemaskan. Salah satu ciri khasnya adalah ia tidak memiliki ekor, yang membuatnya semakin spesial. Bulu Toby berwarna brown golden dengan telinga turun yang menambah kesan imut. Meskipun berbeda dari anjing lainnya, Toby tetap tampil percaya diri dan selalu menarik perhatian siapa pun yang melihatnya.
-        </article>
-        <article>
-            <h3>Artikel 2: Toby, Si Lincah yang Periang tapi Penakut</h3>
-            <p>Toby adalah anjing yang sangat lincah dan penuh energi. Ia selalu bersemangat saat bermain dan bisa menghibur siapa saja di sekitarnya. Namun, di balik keceriaannya, Toby juga memiliki sisi penakut. Toby selalu menggonggong orang yang lewat, tapi kalau orang tersebut mendekat ke arahnya dia langsung takut dan lari. Meskipun begitu, kepribadiannya yang ramah dan periang membuatnya sangat disayangi oleh keluarga dan semua orang.</p>
-        </article>
-        <article>
-            <h3>Artikel 3: Toby, Anjing Cerdas yang Bisa Memberi Salam</h3>
-            <p>Selain lincah dan periang, Toby juga sangat pintar! Salah satu kemampuannya yang paling mengesankan adalah ia bisa memberi salam dengan tangannya saat diminta. Dengan latihan dan kasih sayang, Toby berhasil memahami perintah sederhana dan melakukannya dengan baik. Kepandaiannya ini membuatnya semakin menggemaskan dan menjadi teman yang menyenangkan bagi pemiliknya.</p>
-    </article>
+
+    <?php
+    include 'koneksi.php';
+
+    $query = "SELECT * FROM blog_posts ORDER BY id DESC";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<article>";
+        echo "<h3>" . htmlspecialchars($row['judul']) . "</h3>";
+        echo "<p>" . nl2br(htmlspecialchars($row['konten'])) . "</p>";
+        echo "</article>";
+    }
+
+    mysqli_close($conn);
+    ?>
+
     <script src="blog.js"></script>
 </body>
 </html>
