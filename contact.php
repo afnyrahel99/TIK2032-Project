@@ -13,20 +13,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert data ke tabel contact
     $sql = "INSERT INTO contact (name, message) VALUES ('$nama', '$pesan')";
-    $conn->query($sql);
-    $conn->close();
 
-    // Redirect atau pesan sukses
-    echo "<script>alert('Pesan berhasil dikirim!'); window.location.href='contact.php';</script>";
+    if ($conn->query($sql) === TRUE) {
+        echo "<script>alert('Pesan berhasil dikirim untuk Toby! 🐾'); window.location.href='contact.php';</script>";
+    } else {
+        echo "Error: " . $conn->error;
+    }
+
+    $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact - TIK2032 Project</title>
-    <link rel="stylesheet" href="stylecontact.css">
+    <link rel="stylesheet" href="stylecontact.css" />
 </head>
 <body>
     <h1>Contact</h1>
@@ -44,10 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form method="POST" action="contact.php">
             <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="name" required /><br /><br />
 
             <label for="message">Pesan:</label>
-            <textarea id="message" name="message" required></textarea><br><br>
+            <textarea id="message" name="message" required></textarea><br /><br />
 
             <button type="submit">Kirim</button>
         </form>
