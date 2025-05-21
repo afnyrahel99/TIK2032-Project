@@ -26,22 +26,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Kontak</title>
+    <link rel="stylesheet" href="stylecontact.css">
 </head>
 <body>
     <h2>Hubungi Kami</h2>
-    <form method="POST" action="contact.php">
-        <label for="name">Nama:</label>
-        <input type="text" id="name" name="name" required /><br /><br />
 
-        <label for="message">Pesan:</label>
-        <textarea id="message" name="message" required></textarea><br /><br />
+    <form method="POST" action="contact.php">
+        <label for="name">Nama:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="message">Pesan:</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
 
         <button type="submit">Kirim</button>
     </form>
 
-    <?php if (!empty($message)) echo "<p>$message</p>"; ?>
+    <?php if (!empty($message)): ?>
+        <p><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
 </body>
 </html>
