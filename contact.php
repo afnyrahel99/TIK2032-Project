@@ -1,8 +1,9 @@
 <?php
-// Proses form jika tombol diklik
+$message = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama = $_POST['name'];
-    $pesan = $_POST['message'];
+    $nama = trim($_POST['name']);
+    $pesan = trim($_POST['message']);
 
     // Koneksi ke database
     $conn = new mysqli("localhost", "root", "", "tik2032_project");
@@ -11,15 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Koneksi gagal: " . $conn->connect_error);
     }
 
-    // Insert data ke tabel contact
-    $sql = "INSERT INTO contact (name, message) VALUES ('$nama', '$pesan')";
+    // Prepared statement untuk insert
+    $stmt = $conn->prepare("INSERT INTO contact (name, message) VALUES (?, ?)");
+    $stmt->bind_param("ss", $nama, $pesan);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Pesan berhasil dikirim untuk Toby! 🐾'); window.location.href='contact.php';</script>";
+    if ($stmt->execute()) {
+        $message = "Pesan berhasil dikirim untuk Toby! 🐾";
     } else {
-        echo "Error: " . $conn->error;
+        $message = "Error: " . $stmt->error;
     }
 
+    $stmt->close();
     $conn->close();
 }
 ?>
@@ -45,6 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Does anyone want to send toby a message? ૮₍ 𝁽ܫ𝁽 ₎ა</h2>
         <p>Email: afnyrewur09@gmail.com</p>
         <p>Instagram: afnyrwr</p>
+
+        <?php if($message): ?>
+            <p style="color: green; font-weight: bold;"><?php echo htmlspecialchars($message); ?></p>
+        <?php endif; ?>
 
         <form method="POST" action="contact.php">
             <label for="name">Nama:</label>
